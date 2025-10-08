@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GateScreen matches snapshot 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#fff",
+        },
+        {
+          "flexDirection": "row",
+          "gap": 8,
+          "paddingHorizontal": 32,
+          "paddingTop": 80,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#11181C",
+          },
+          undefined,
+          {
+            "fontSize": 32,
+            "fontWeight": "bold",
+            "lineHeight": 32,
+          },
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      Gates
+    </Text>
+  </View>
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    contentContainerStyle={
+      {
+        "gap": 20,
+      }
+    }
+    data={[]}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={16}
+    stickyHeaderIndices={[]}
+    style={
+      [
+        {
+          "flex": 1,
+          "padding": 20,
+        },
+        {
+          "backgroundColor": "#fff",
+        },
+      ]
+    }
+    viewabilityConfigCallbackPairs={[]}
+    windowSize={2}
+  >
+    <View>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#fff",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#11181C",
+              },
+              {
+                "fontSize": 16,
+                "lineHeight": 24,
+              },
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          No gates available
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

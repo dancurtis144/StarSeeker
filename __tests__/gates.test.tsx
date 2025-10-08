@@ -8,4 +8,9 @@ describe("GateScreen", () => {
     expect(getByText("Gates")).toBeTruthy();
     expect(getByText("No gates available")).toBeTruthy();
   });
+
+  it("matches snapshot", () => {
+    const screen = render(<GateScreen />);
+    expect(screen).toMatchSnapshot();
+  });
 });

@@ -1,17 +1,22 @@
-import { type PropsWithChildren, } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { type PropsWithChildren } from "react";
+import { FlatList, StyleSheet } from "react-native";
 
-import { ThemedView } from '@/components/themed-view';
-import { useThemeColor } from '@/hooks/use-theme-color';
+import { ThemedView } from "@/components/themed-view";
+import { useThemeColor } from "@/hooks/use-theme-color";
 
-type Props = PropsWithChildren<{data: any[], renderItem: ({item} : any) => React.JSX.Element}>;
+type Props = PropsWithChildren<{
+  data: any[];
+  renderItem: ({ item }: any) => React.JSX.Element;
+  renderEmptyComponent: () => React.JSX.Element;
+}>;
 
 export function ThemedFlatList({
   data,
   renderItem,
+  renderEmptyComponent,
   children,
 }: Props) {
-  const backgroundColor = useThemeColor({}, 'background');
+  const backgroundColor = useThemeColor({}, "background");
 
   return (
     <FlatList
@@ -19,10 +24,12 @@ export function ThemedFlatList({
       data={data}
       initialNumToRender={10}
       keyExtractor={(_, index) => index.toString()}
+      ListEmptyComponent={renderEmptyComponent}
       renderItem={renderItem}
       style={[styles.container, { backgroundColor }]}
       scrollEventThrottle={16}
-      windowSize={2}>
+      windowSize={2}
+    >
       <ThemedView style={styles.content}>{children}</ThemedView>
     </FlatList>
   );
@@ -31,15 +38,15 @@ export function ThemedFlatList({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20
+    padding: 20,
   },
   content: {
     flex: 1,
     padding: 32,
     gap: 16,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   contentContainer: {
-    gap:20
-  }
+    gap: 20,
+  },
 });

@@ -2,18 +2,18 @@ import { useCallback, useState } from "react";
 import { DEFAULT_ENV_URL, TOKEN } from "../constants";
 
 export type GateLink = {
-    code: string;
-    hu: number
-}
+  code: string;
+  hu: number;
+};
 
 export type Gate = {
-    code: string;
-    createdAt: string;
-    links: GateLink[];
-    name: string;
-    updatedAt: string;
-    uuid: string;
-}
+  code: string;
+  createdAt: string;
+  links: GateLink[];
+  name: string;
+  updatedAt: string;
+  uuid: string;
+};
 
 const useGetGate = () => {
   const [error, setError] = useState(false);
@@ -23,12 +23,15 @@ const useGetGate = () => {
   const getGate = useCallback(async (code: string) => {
     try {
       setLoading(true);
-      const response = await fetch(`${DEFAULT_ENV_URL}/gates/${code.toUpperCase()}`, {
-        method: "GET",
-        headers: {
-          'x-api-key': `${TOKEN}`,
-        },
-      });
+      const response = await fetch(
+        `${DEFAULT_ENV_URL}/gates/${code.toUpperCase()}`,
+        {
+          method: "GET",
+          headers: {
+            "x-api-key": `${TOKEN}`,
+          },
+        }
+      );
       const data = await response.json();
       setGate(data);
     } catch (e) {

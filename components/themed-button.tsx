@@ -1,7 +1,7 @@
-import { Pressable, StyleSheet, type PressableProps } from 'react-native';
+import { Pressable, StyleSheet, type PressableProps } from "react-native";
 
-import { useThemeColor } from '@/hooks/use-theme-color';
-import { ThemedText } from './themed-text';
+import { useThemeColor } from "@/hooks/use-theme-color";
+import { ThemedText } from "./themed-text";
 
 export type ThemedButtonProps = PressableProps & {
   lightColor?: string;
@@ -10,32 +10,29 @@ export type ThemedButtonProps = PressableProps & {
 };
 
 export function ThemedButton({
-  style,
   lightColor,
   darkColor,
   onPress,
   text,
-  ...rest
 }: ThemedButtonProps) {
-    const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-
-    return (
-        <Pressable
-            style={styles.input}
-            onPress={onPress}
-        >
-            <ThemedText type="subtitle">{text}</ThemedText>
-        </Pressable>
-    );
+  const backgroundColor = useThemeColor(
+    { light: lightColor, dark: darkColor },
+    "background"
+  );
+  return (
+    <Pressable style={[styles.input, { backgroundColor }]} onPress={onPress}>
+      <ThemedText type="subtitle">{text}</ThemedText>
+    </Pressable>
+  );
 }
 
 const styles = StyleSheet.create({
   input: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: "gray",
     borderRadius: 4,
     padding: 8,
   },

@@ -2,10 +2,9 @@ import { useCallback, useState } from "react";
 import { DEFAULT_ENV_URL, TOKEN } from "../constants";
 import { Gate } from "./useGetGate";
 
-
 const useGetGates = () => {
   const [error, setError] = useState(false);
-  const [gates, setGates] = useState<Array<Gate>>([]);
+  const [gates, setGates] = useState<Gate[]>([]);
   const [loading, setLoading] = useState(false);
 
   const getGates = useCallback(async () => {
@@ -14,7 +13,7 @@ const useGetGates = () => {
       const response = await fetch(`${DEFAULT_ENV_URL}/gates`, {
         method: "GET",
         headers: {
-          'x-api-key': `${TOKEN}`,
+          "x-api-key": `${TOKEN}`,
         },
       });
       const data = await response.json();

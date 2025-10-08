@@ -1,6 +1,4 @@
-# Welcome to your Expo app 👋
-
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Welcome to the StarSeeker app 👋
 
 ## Get started
 
@@ -10,41 +8,46 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npm install
    ```
 
-2. Start the app
+2. Add .env.local file
+
+   Within the file add these 2 properties
+   EXPO_PUBLIC_API_URL={API URL provided in task}
+   EXPO_PUBLIC_TOKEN={API Token provided in task}
+
+3. Start the app
 
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+   This can be run on iOS and Android simulators or real devices. Follow commands in terminal
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+4. To run simple tests
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   ```bash
+   npm test
+   ```
 
-## Get a fresh project
+## Reasoning
 
-When you're ready, run:
+State is all currently managed within each individual component. As in this example there was no need to transfer state
+across the app on a temporary level, app wide state management was left out however in usual work I would use React Context
+to manage this.
 
-```bash
-npm run reset-project
-```
+Any app permeance needed (eg. previous gates) is currently stored in AsyncStorage as a simple data management resource and allows
+it to be viewed in an offline format. If I were to develop the project further, I would move from AsyncStorage to a database format
+such as Watermelon for better management and interaction.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+I've added the use of dark mode via the device settings as it is heavily advised by both Android and iOS to include for usability and
+accessibility. For navigation, I've used expo-route to manage the tabs and stacks and to add some animation when navigating across.
+This is actually a first for me as I have used react-navigation for all other projects in the past.
 
-## Learn more
+The app makes use of a parallax scroll view for animations. I find this best on a home screen only as it makes for an interesting entry point into the app but this could also be transferred to the other screens as they are both lists which could use the
+pull down to refresh functionality for interactivity.
 
-To learn more about developing your project with Expo, look at the following resources:
+There are some things that I would plan on developing on next to improve the app:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- More intuitive error handling: there are UI error messages for pressing the route finder with no routes selected but the rest are
+  logs to the console. There is also no clear API error handling to the user at this time.
+- UI: Apart from the parallax scroll view, there is very little colour and imagery to the app. I'd like to add more to this along with animations to complement interaction.
+- Testing: Whilst some tests have been added, due to time I did not flesh these out further. It would be good to add more for better coverage

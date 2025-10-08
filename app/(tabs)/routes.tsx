@@ -18,7 +18,7 @@ const RouteCard = memo(function RouteCard({ route }: { route: any }) {
   );
 });
 
-export default function HomeScreen() {
+export default function RoutesScreen() {
   const [previousRoutes, setPreviousRoutes] = useState([]);
 
   useFocusEffect(() => {

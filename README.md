@@ -11,8 +11,8 @@
 2. Add .env.local file
 
    Within the file add these 2 properties
-   EXPO_PUBLIC_API_URL={API URL provided in task}
-   EXPO_PUBLIC_TOKEN={API Token provided in task}
+   EXPO_PUBLIC_API_URL=API URL provided in task
+   EXPO_PUBLIC_TOKEN=API Token provided in task
 
 3. Start the app
 

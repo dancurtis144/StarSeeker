@@ -51,3 +51,4 @@ There are some things that I would plan on developing on next to improve the app
   logs to the console. There is also no clear API error handling to the user at this time.
 - UI: Apart from the parallax scroll view, there is very little colour and imagery to the app. I'd like to add more to this along with animations to complement interaction.
 - Testing: Whilst some tests have been added, due to time I did not flesh these out further. It would be good to add more for better coverage
+- CI/CD: Currently the necessary tokens are stored in the .env file. I'd like to move this to be included in a pipeline when building the app. I've also added the expo-secure-store package ready for login functionality
